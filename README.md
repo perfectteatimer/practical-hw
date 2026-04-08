@@ -1,116 +1,99 @@
-# practical-hw
+# Practical Homework
 
-A repository of practical tasks from ML, DL, RL, and Matrix Analysis courses. All courses completed at HSE or YSDA. There may be some issues in the code.
-
-
-## Machine Learning 
-
-### Overview of Project
-
-#### **Linreg**
-
-* Analysis of data and feature engineering.
-* Data visualization and working with `scikit-learn`.
-* Fitting and predicting with real datasets.
-
-#### **Gradient Descent**
-
-* Implementation of various gradient descent methods in `descents.py`.
-* Linear regression training using these methods in `linear_regression.py`.
-* Understanding optimization algorithms through hands-on implementation.
-
-#### **Linear Classification**
-
-* Classification metrics and model evaluation.
-* Exploration of SVM and logistic regression.
-* Probability calibration, feature transformation, and selection.
-* Multi-class classification and a near real-world business case.
-
-#### **Trees**
-
-* Decision trees from `scikit-learn` for classification and hyperparameter analysis.
-* Implementation of a custom decision tree for classification.
-* A regression tree with linear models in the leaf nodes.
-
-#### **Boosting**
-
-* Custom implementation of gradient boosting.
-* Exploration of optimization techniques for boosting.
-* Experiments with the capabilities of boosting algorithms.
+A collection of practical assignments from ML, DL, RL, GenAI, and Matrix Analysis courses at HSE and YSDA.
 
 ---
 
-## Deep Learning
+## Machine Learning (HSE)
 
+#### Linear Regression
+Data analysis, feature engineering, visualization, and fitting models with `scikit-learn`.
 
-#### **Feed-Forward Neural Networks (FNN)**
+#### Gradient Descent
+Implementation of various gradient descent methods (`descents.py`) and linear regression training (`linear_regression.py`).
 
-* Implementation of a fully connected neural network with forward and backward propagation to perform classification on a sample dataset, including hyperparameter tuning and performance visualization.
+#### Linear Classification
+SVM, logistic regression, probability calibration, feature transformation, multi-class classification, and a near real-world business case.
 
-#### **Convolutional Neural Networks (CNN)**
+#### Decision Trees
+Decision trees for classification, hyperparameter analysis, custom tree implementation, and regression trees with linear models in leaves.
 
-* Construction and training of a convolutional neural network for image classification, showcasing convolutional, pooling layers and evaluation metrics on validation data.
+#### Boosting
+Custom gradient boosting implementation, optimization techniques, and experiments with CatBoost.
 
-#### **Recurrent Neural Networks (RNN)**
+---
 
-* Development of a recurrent neural network model using LSTM cells for sequence prediction tasks, featuring sequence preprocessing, training loops, and loss tracking.
+## Deep Learning (HSE)
 
-* Utility scripts for dataset loading (`dataset.py`), model definitions (`model_l.py`), and training workflow (`train.py`) to streamline experiments and reproducible model training.
+#### HW1 — Feed-Forward Neural Networks
+Fully connected network with forward and backward propagation, hyperparameter tuning, and performance visualization.
 
-#### **Contrastive Language–Image Pretraining (CLIP)**
+#### HW2 — Convolutional Neural Networks
+CNN for image classification with convolutional and pooling layers.
 
-* Integration of text (`TextEncoder.py`) and image (`ImageEncoder.py`) encoders with a projection head (`ProjectionHead.py`) and custom dataset loader (`CLIPDataset.py`) in a Jupyter notebook (`my_clip.ipynb`), training a contrastive model on paired image-text data.
+#### HW3 — Recurrent Neural Networks
+LSTM-based model for sequence prediction with custom dataset loading, model definitions, and training pipeline.
 
-## Deep Learning in Natural Sciences
+#### HW4 — CLIP
+Contrastive Language-Image Pretraining: text and image encoders with a projection head, trained on paired image-text data.
 
-#### **Bioinformatics**
+---
 
-* Implementation of deep neural networks for genomic sequence analysis to predict functional annotations, featuring sequence encoding strategies, cross-validation performance metrics, and filter visualization.
+## Deep Learning in Natural Sciences (HSE)
 
-#### **Materials Science I**
+#### Bioinformatics
+Deep neural networks for genomic sequence analysis and functional annotation prediction.
 
-* Application of convolutional and graph-based neural networks to forecast material properties from atomic structures, including preprocessing of crystallographic data and model evaluation against real-world measurements.
+#### Materials Science I
+Convolutional and graph-based neural networks for forecasting material properties from atomic structures.
 
-#### **Materials Science II**
+#### Materials Science II
+Machine learning workflows for materials discovery with uncertainty quantification and robustness analysis.
 
-* Extension of maching learning workflows for materials discovery using different customizations of classic ML model and uncertainty quantification, showcasing dataset augmentation and robustness analysis across multiple material classes.
+#### Physics-Informed Neural Networks (PINNs)
+Neural networks with physical laws integrated into the loss function for solving partial differential equations.
 
-#### **Physics-Informed Neural Networks (PINNs)**
+---
 
-* Development of physics-informed neural networks to solve partial differential equations in natural science applications, integrating physical laws into the loss function and tracking physics constraint errors during training.
+## Generative AI (YSDA)
 
-## Reinforcement Learning
+#### HW1-3 — Flow Matching
+Flow Matching model training with JIT compilation and REPA-based architecture.
 
-#### **Dynamic Programming (VI/PI)**
+#### HW2-4 — Flow Map Models
+Exploration of flow map models for generative tasks.
 
-* Implementation of value iteration and policy iteration algorithms for solving Markov Decision Processes, with gridworld examples illustrating convergence and policy evaluation.
+---
 
-#### **Deep Q-Networks (DQN)**
+## Reinforcement Learning (YSDA)
 
-* Development of DQN algorithm with experience replay and target networks to learn policies in discrete action spaces, including training on OpenAI Gym environments and evaluation of learning curves.
+#### Dynamic Programming (VI/PI)
+Value iteration and policy iteration for solving Markov Decision Processes.
 
-#### **Deep Cross-Entropy Method**
+#### Deep Q-Networks (DQN)
+DQN with experience replay and target networks for discrete action spaces.
 
-* Application of the cross-entropy method with neural network function approximation, featuring episode sampling, parameter updates, and performance tracking in control tasks.
+#### Deep Cross-Entropy Method
+Cross-entropy method with neural network function approximation for control tasks.
 
-#### **Continuous Control (TD3 & SAC)**
+#### Continuous Control (TD3 & SAC)
+Twin Delayed DDPG and Soft Actor-Critic for continuous action spaces.
 
-* Implementation of Twin Delayed DDPG and Soft Actor-Critic algorithms for continuous action spaces, including actor-critic network structures, entropy regularization, and benchmark comparisons.
+#### Model-Free RL
+Monte Carlo, Temporal Difference, and on-policy/off-policy methods with experiments on sample efficiency.
 
-#### **Model-Free RL**
+---
 
-* Exploration of model-free reinforcement learning strategies, including Monte Carlo, Temporal Difference learning, and on-policy/off-policy methods, with experiments demonstrating sample efficiency and stability.
+## Matrix Analysis (HSE & YSDA)
 
-## Application of Matrix Analysis and computational linear algebra
+#### Lab 1 — Image Search via SVD
+Singular value decomposition for finding eigenfaces and similar images.
 
-This repository contains practice homework projects related to applied aspects of working with matrices and implementing computational linear algebra algorithms in Python.
+#### Lab 2 — Recommendation Model via ALS
+Recommendation system based on sparse rank approximations of sparse matrices.
 
-#### Overview of project
+#### Lab 3 — Tomography
+Tomogram reconstruction from ray intensity data.
 
-**lab1** - In this project, I worked with one possible application of singular value decomposition - finding a "good" basis (eigenfaces) in a set of images and using it to find similar images.
-
-**lab2** - In this project, I built a recommendation model based on sparse rank approximations of sparse matrices.
-
-**lab3** - In this project, I constructed a tomogram of some object using data on the intensity of rays that passed through it.
-
-**lab4** - In this project, I was concerned with calculating voltages in a resistor system and iterative methods for solving linear systems, specifically comparing different iterative methods for solving systems, both modeled and real large and sparse.
+#### Lab 4 — Resistor Network Voltages
+Iterative methods for solving large sparse linear systems in a resistor network.
