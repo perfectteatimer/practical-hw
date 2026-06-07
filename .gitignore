@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML training artifacts
+catboost_info/
+*.db
+
+# Large datasets / downloadable archives
+*.zip
+*.tgz
+*.tar.gz
+*.tar
