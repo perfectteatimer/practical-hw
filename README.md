@@ -61,6 +61,7 @@ self-contained folder following a uniform `hwN-topic` / `labN-topic` convention.
 | 1 | [Flow Matching](GenAI-YSDA/hw1-flow-matching) | Flow Matching model training with JIT compilation and a REPA-based architecture. |
 | 2 | [Flow Map Models](GenAI-YSDA/hw2-flow-map-models) | Exploration of flow map models for generative tasks. |
 | 3 | [MMD Distillation](GenAI-YSDA/hw3-mmd-distillation) | Few-step generator distillation with an added Maximum Mean Discrepancy (MMD) objective. |
+| 4 | [MAR with Flow Matching Head](GenAI-YSDA/hw4-mar-flow-matching-head) | Masked Autoregressive image generation with a per-token flow matching head, built on a VAE latent space. |
 
 ## Reinforcement Learning (YSDA)
 

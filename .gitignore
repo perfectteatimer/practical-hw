@@ -21,3 +21,14 @@ catboost_info/
 *.tgz
 *.tar.gz
 *.tar
+
+# Model checkpoints / weights
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+
+# Local dataset / pretrained-model directories
+**/data/
+**/pretrained_models/
+*.tar.*
