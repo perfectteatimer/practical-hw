@@ -84,10 +84,5 @@ self-contained folder following a uniform `hwN-topic` / `labN-topic` convention.
 
 ---
 
-## Notes
-
-- Large datasets and downloadable archives (e.g. `ml-10m.zip`, `lfw-a.tgz`) and training
-  artifacts (`catboost_info/`, `*.db`) are **not** tracked in git — see [`.gitignore`](.gitignore).
-  Download the corresponding datasets to reproduce a notebook end-to-end.
 </content>
 </invoke>
