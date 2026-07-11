@@ -1,7 +1,7 @@
 # Practical Homework
 
 A curated collection of solved practical assignments from **Machine Learning**, **Deep Learning**,
-**Reinforcement Learning**, **Generative AI**, and **Matrix Analysis** courses at
+**Efficient Deep Learning Systems**, **Reinforcement Learning**, **Generative AI**, and **Matrix Analysis** courses at
 **HSE** and the **Yandex School of Data Analysis (YSDA)**.
 
 Each course lives in its own top-level directory named `Topic-Org`, and every assignment is a
@@ -21,6 +21,7 @@ self-contained folder following a uniform `hwN-topic` / `labN-topic` convention.
 - [Deep Learning (HSE)](#deep-learning-hse)
 - [Deep Learning in Natural Sciences (HSE)](#deep-learning-in-natural-sciences-hse)
 - [Generative AI (YSDA)](#generative-ai-ysda)
+- [Efficient Deep Learning Systems (YSDA)](#efficient-deep-learning-systems-ysda)
 - [Reinforcement Learning (YSDA)](#reinforcement-learning-ysda)
 - [Matrix Analysis (HSE & YSDA)](#matrix-analysis-hse--ysda)
 
@@ -62,6 +63,17 @@ self-contained folder following a uniform `hwN-topic` / `labN-topic` convention.
 | 2 | [Flow Map Models](GenAI-YSDA/hw2-flow-map-models) | Exploration of flow map models for generative tasks. |
 | 3 | [MMD Distillation](GenAI-YSDA/hw3-mmd-distillation) | Few-step generator distillation with an added Maximum Mean Discrepancy (MMD) objective. |
 | 4 | [MAR with Flow Matching Head](GenAI-YSDA/hw4-mar-flow-matching-head) | Masked Autoregressive image generation with a per-token flow matching head, built on a VAE latent space. |
+
+## Efficient Deep Learning Systems (YSDA)
+
+| # | Assignment | Description |
+|---|------------|-------------|
+| 1 | [Testing and Experiment Management](EfficientDL-YSDA/week02_management_and_testing/homework) | Debugging and testing a DDPM training pipeline, W&B logging, Hydra configuration, and reproducible experiments with DVC. |
+| 2 | [Fast Training Pipelines](EfficientDL-YSDA/week03_fast_pipelines/homework) | Custom static and dynamic loss scaling, efficient sequence batching, and profiling data-loading and GPU workloads. |
+| 3 | [Distributed Data Parallel Training](EfficientDL-YSDA/week04_data_parallel/homework) | Custom SyncBatchNorm, gradient synchronization, distributed metric aggregation, and Ring All-Reduce. |
+| 4 | [Fully Sharded Data Parallel](EfficientDL-YSDA/week06_fsdp/homework) | A custom FSDP implementation with parameter sharding and overlapping communication with forward and backward computation. |
+| 5 | [Model Service Deployment](EfficientDL-YSDA/week07_application_deployment/homework) | Containerized instance-detection service with HTTP and gRPC APIs, Prometheus metrics, and deployment tests. |
+| 6 | [Inference Algorithms](EfficientDL-YSDA/week09_inference_algorithms/homework) | W8A8 weight and activation quantization, optimized integer matrix multiplication, and speculative decoding. |
 
 ## Reinforcement Learning (YSDA)
 
