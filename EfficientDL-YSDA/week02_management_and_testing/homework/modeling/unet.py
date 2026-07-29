@@ -33,7 +33,9 @@ class ConvBlock(nn.Module):
 class DownBlock(nn.Module):
     def __init__(self, in_channels: int, out_channels: int):
         super().__init__()
-        self.layers = nn.Sequential(ConvBlock(in_channels, out_channels), nn.MaxPool2d(2))
+        self.layers = nn.Sequential(
+            ConvBlock(in_channels, out_channels), nn.MaxPool2d(2)
+        )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.layers(x)
@@ -107,6 +109,22 @@ class UnetModel(nn.Module):
 
         thro = self.to_vec(down3)
         temb = self.timestep_embedding(t)
+
+        # thro stores the lowest dimensional representation of an image
+        # it is a 4D tensor [batch size, number of channels, 1, 1] but basically
+        # it is a vector of channel features for each image in the batch.
+        # temb is a timestep embedding with shape [batch size, number of channels].
+        # it tells the model which diffusion step the image is currently at or
+        # == how noisy the input image is
+        # both thro and temb contain features, and we wanna add the timestep info
+        # to the image features so the model knows how to process the current noise level
+        # to add them correctly we need matching dimensions so we add two singleton
+        # spatial dimensions to temb. they do not add new values they only change
+        # the tensor shape from [B, C] to [B, C, 1, 1]
+
+        temb = temb[
+            :, :, None, None
+        ]  # [keep the same, keep the same, add new empty dim, new add empty dim]
 
         thro = self.up0(thro + temb)
 
