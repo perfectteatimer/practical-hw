@@ -1,0 +1,14 @@
+# main uses this name to choose the optimizer
+name: sgd
+
+# sgd learning rate
+peak_lr: 1e-2
+
+# no weight decay by default
+weight_decay: 0.0
+
+# sgd momentum
+momentum: 0.9
+
+# sgd does not use adam beta values
+betas: null

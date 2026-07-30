@@ -7,7 +7,9 @@ from tqdm import tqdm
 from modeling.diffusion import DiffusionModel
 
 
-def train_step(model: DiffusionModel, inputs: torch.Tensor, optimizer: Optimizer, device: str):
+def train_step(
+    model: DiffusionModel, inputs: torch.Tensor, optimizer: Optimizer, device: str
+):
     optimizer.zero_grad()
     inputs = inputs.to(device)
     loss = model(inputs)
@@ -16,7 +18,9 @@ def train_step(model: DiffusionModel, inputs: torch.Tensor, optimizer: Optimizer
     return loss
 
 
-def train_epoch(model: DiffusionModel, dataloader: DataLoader, optimizer: Optimizer, device: str):
+def train_epoch(
+    model: DiffusionModel, dataloader: DataLoader, optimizer: Optimizer, device: str
+):
     model.train()
     pbar = tqdm(dataloader)
     loss_ema = None

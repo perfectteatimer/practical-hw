@@ -1,0 +1,66 @@
+# hydra puts these configs into one config
+defaults:
+  # use adam by default
+  - optimizer: adam
+  # use the default wandb settings
+  - wandb: default
+  # load this file last
+  - _self_
+
+# use the same random state for every run
+seed: 42
+
+# use cuda if it exists or cpu if it does not
+device: auto
+
+# main training settings
+training:
+  # keep training off while checking configs
+  enabled: false
+  # number of images in one batch
+  batch_size: 128
+  # number of full passes over the dataset
+  num_epochs: 100
+  # number of processes that load data
+  num_workers: 4
+
+# dataset settings
+data:
+  # cifar10 is stored here
+  root: ./data
+  # turn random horizontal flips on or off
+  random_flip: false
+
+# unet settings
+model:
+  in_channels: 3
+  out_channels: 3
+  hidden_size: 128
+
+# ddpm noise settings
+diffusion:
+  beta_start: 1e-4
+  beta_end: 0.02
+  num_timesteps: 1000
+
+# image sampling settings
+sampling:
+  # these values match the current sampling function
+  num_samples: 8
+  image_size: [3, 32, 32]
+  # create samples after this number of epochs
+  every_n_epochs: 1
+
+# keep files in the project folder
+hydra:
+  job:
+    chdir: false
+
+  # save every run in its own folder
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+  # save every multirun result in its own folder
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}_${optimizer.name}

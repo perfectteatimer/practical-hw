@@ -1,0 +1,17 @@
+# local datasets
+data/
+cifar10/
+
+# local python environment
+.venv/
+
+# hydra outputs
+outputs/
+multirun/
+
+# training outputs
+samples/
+wandb/
+
+# old datasphere test job
+datasphere_cuda_tests.yaml

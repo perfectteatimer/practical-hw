@@ -22,11 +22,14 @@ class DiffusionModel(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         timestep = torch.randint(1, self.num_timesteps + 1, (x.shape[0],))
-        eps = torch.rand_like(x)
+        # eps = torch.rand_like(x) basically second test falls bcs of high mse, mse is high since eps sampled from uniform insted of normal
+        eps = torch.randn_like(x)
 
+        # mistake in formula, one_mins_alpha_over_prod is designed to sample clean image, so we need sqrt of it, since model gets almost clean img and tries to guess noise -> nonsence
         x_t = (
             self.sqrt_alphas_cumprod[timestep, None, None, None] * x
-            + self.one_minus_alpha_over_prod[timestep, None, None, None] * eps
+            # + self.one_minus_alpha_over_prod[timestep, None, None, None] * eps
+            + self.sqrt_one_minus_alpha_prod[timestep, None, None, None] * eps
         )
 
         return self.criterion(eps, self.eps_model(x_t, timestep / self.num_timesteps))
@@ -37,16 +40,27 @@ class DiffusionModel(nn.Module):
 
         for i in range(self.num_timesteps, 0, -1):
             z = torch.randn(num_samples, *size) if i > 1 else 0
-            eps = self.eps_model(x_i, torch.tensor(i / self.num_timesteps).repeat(num_samples, 1).to(device))
-            x_i = self.inv_sqrt_alphas[i] * (x_i - eps * self.one_minus_alpha_over_prod[i]) + self.sqrt_betas[i] * z
+            eps = self.eps_model(
+                x_i,
+                torch.tensor(i / self.num_timesteps).repeat(num_samples, 1).to(device),
+            )
+            x_i = (
+                self.inv_sqrt_alphas[i]
+                * (x_i - eps * self.one_minus_alpha_over_prod[i])
+                + self.sqrt_betas[i] * z
+            )
 
         return x_i
 
 
-def get_schedules(beta1: float, beta2: float, num_timesteps: int) -> Dict[str, torch.Tensor]:
+def get_schedules(
+    beta1: float, beta2: float, num_timesteps: int
+) -> Dict[str, torch.Tensor]:
     assert beta1 < beta2 < 1.0, "beta1 and beta2 must be in (0, 1)"
 
-    betas = (beta2 - beta1) * torch.arange(0, num_timesteps + 1, dtype=torch.float32) / num_timesteps + beta1
+    betas = (beta2 - beta1) * torch.arange(
+        0, num_timesteps + 1, dtype=torch.float32
+    ) / num_timesteps + beta1
     sqrt_betas = torch.sqrt(betas)
     alphas = 1 - betas
 

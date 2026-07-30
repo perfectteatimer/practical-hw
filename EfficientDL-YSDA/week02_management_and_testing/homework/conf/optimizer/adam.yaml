@@ -1,0 +1,14 @@
+# main uses this name to choose the optimizer
+name: adam
+
+# adam learning rate
+peak_lr: 1e-5
+
+# no weight decay by default
+weight_decay: 0.0
+
+# adam does not use sgd momentum
+momentum: null
+
+# adam moving average values
+betas: [0.9, 0.999]

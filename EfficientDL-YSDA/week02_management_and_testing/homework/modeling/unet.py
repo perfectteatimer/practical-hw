@@ -121,6 +121,17 @@ class UnetModel(nn.Module):
         # to add them correctly we need matching dimensions so we add two singleton
         # spatial dimensions to temb. they do not add new values they only change
         # the tensor shape from [B, C] to [B, C, 1, 1]
+        # example for [1, 4, 1 ,1] [
+        #   [ 1 object
+        #     [[ 0.1]], 1 object in each of 4 cells
+        #     [[ 0.8]],
+        #     [[-0.3]],
+        #     [[ 0.6]]
+        #   ]
+        # example for [1, 4]
+        # [
+        #    [1, 1, 1] 1 object 4 values
+        # ]
 
         temb = temb[
             :, :, None, None
