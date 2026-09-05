@@ -70,9 +70,7 @@ self-contained folder following a uniform `hwN-topic` / `labN-topic` convention.
 |---|------------|-------------|
 | 1 | [Testing and Experiment Management](EfficientDL-YSDA/week02_management_and_testing/homework) | Debugging and testing a DDPM training pipeline, W&B logging, Hydra configuration, and reproducible experiments with DVC. |
 | 2 | [Fast Training Pipelines](EfficientDL-YSDA/week03_fast_pipelines/homework) | Custom static and dynamic loss scaling, efficient sequence batching, and profiling data-loading and GPU workloads. |
-| 3 | [Distributed Data Parallel Training](EfficientDL-YSDA/week04_data_parallel/homework) | Custom SyncBatchNorm, gradient synchronization, distributed metric aggregation, and Ring All-Reduce. |
 | 4 | [Fully Sharded Data Parallel](EfficientDL-YSDA/week06_fsdp/homework) | A custom FSDP implementation with parameter sharding and overlapping communication with forward and backward computation. |
-| 5 | [Model Service Deployment](EfficientDL-YSDA/week07_application_deployment/homework) | Containerized instance-detection service with HTTP and gRPC APIs, Prometheus metrics, and deployment tests. |
 | 6 | [Inference Algorithms](EfficientDL-YSDA/week09_inference_algorithms/homework) | W8A8 weight and activation quantization, optimized integer matrix multiplication, and speculative decoding. |
 
 ## Reinforcement Learning (YSDA)
